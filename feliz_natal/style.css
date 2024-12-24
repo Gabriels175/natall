@@ -1,0 +1,120 @@
+:root {
+    --bg-color: #004d00; /* Fundo verde escuro */
+    --box-color: #ff4242; /* Vermelho vivo da caixa */
+    --lid-color: #ff7675; /* Tampa da caixa com tom mais claro */
+    --ribbon-color: #ffd700; /* Dourado para a fita */
+    --letter-color: #fff; /* Fundo branco da carta */
+    --text-color: #444;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: var(--bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.gift-box {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    perspective: 1000px;
+    cursor: pointer;
+    z-index: 10; /* Definido para garantir que a caixa esteja acima de outros elementos */
+    transition: opacity 0.5s ease-in-out; /* Adiciona uma transição de opacidade */
+}
+
+.gift-box .lid {
+    position: absolute;
+    width: 150px;
+    height: 50px;
+    background: var(--lid-color);
+    top: 0;
+    left: 0;
+    transform-origin: top;
+    transform: rotateX(0deg);
+    transition: transform 0.5s ease-in-out;
+    box-shadow: 0 5px 10px var(--shadow-color);
+}
+
+.gift-box .base {
+    position: absolute;
+    width: 150px;
+    height: 100px;
+    background: var(--box-color);
+    top: 50px;
+    left: 0;
+    box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+.gift-box .ribbon-horizontal,
+.gift-box .ribbon-vertical {
+    position: absolute;
+    background: var(--ribbon-color);
+    z-index: 2;
+}
+
+.gift-box .ribbon-horizontal {
+    width: 150px;
+    height: 10px;
+    top: 20px;
+    left: 0;
+}
+
+.gift-box .ribbon-vertical {
+    width: 10px;
+    height: 150px;
+    top: 0;
+    left: 70px;
+}
+
+.letter {
+    position: absolute;
+    top: -200px;
+    left: 0;
+    width: 200px;
+    padding: 20px;
+    background: var(--letter-color);
+    box-shadow: 0 5px 15px var(--shadow-color);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    z-index: 5; /* Garantir que a carta apareça acima da caixa */
+    border-radius: 5px;
+}
+
+.letter.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.letter .text {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: var(--text-color);
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Ao abrir a caixa, ela desaparecerá */
+.gift-box.open {
+    opacity: 0; /* Torna a caixa invisível */
+    pointer-events: none; /* Desabilita a interação com a caixa */
+}
+
+.gift-box.open .lid {
+    transform: rotateX(-140deg);
+}

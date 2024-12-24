@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presente de Natal</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="gift-box">
+            <div class="lid"></div>
+            <div class="ribbon-horizontal"></div>
+            <div class="ribbon-vertical"></div>
+            <div class="base"></div>
+        </div>
+        <div class="letter">
+            <div class="text">
+                <strong>Para o meu amor! 🎄</strong>
+                <p>
+                    Que este Natal seja repleto de amor, alegria e momentos especiais ao lado das pessoas que você ama.  
+                    Desejo que todos os seus sonhos se realizem , que Deus ilumine sua vida , que ele te abençoe , te guarde e te ajude em todos os seus momentos. Esse e só o primeiro natal nosso juntos mas espero que possam vir mais...bom o espaço que tenho na carta nao é tao grande pra eu expresar o quanto te amo e todas as coisas boas que desejo pra você.Então finalizo por aqui, te amo muito minha princesa , meu amor , minha vida ,minha putinha(esse eu sei que você gosta n pdia ficar de fora).Enfim é isso , te amo!!! 
+                    Feliz Natal 🎅✨  
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+        const giftBox = document.querySelector('.gift-box');
+        const letter = document.querySelector('.letter');
+        giftBox.addEventListener('click', () => {
+            giftBox.classList.toggle('open');
+            letter.classList.toggle('show');
+        });
+    </script>
+</body>
+</html>
+
+
